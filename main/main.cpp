@@ -98,7 +98,7 @@ static void fix_path(VMWCHAR *path)
 static bool file_exists(const char *path)
 {
     VMWCHAR wpath[INFO_PATH_LEN] = {0};
-    vm_ascii_to_ucs2(wpath, sizeof(wpath), path);
+    vm_ascii_to_ucs2(wpath, sizeof(wpath), const_cast<char *>(path));
     fix_path(wpath);
 
     VMFILE file = vm_file_open(wpath, MODE_READ, 1);
