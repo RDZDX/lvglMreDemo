@@ -1,5 +1,15 @@
 # Port and demo of [LVGL](https://github.com/lvgl/lvgl) for MRE platform
 
+
+Map tile setup (for you to do manually)
+The app will look for tiles on the MRE filesystem at:
+
+Code\
+e:/osm/gdansk/z/x/y.bin\
+e:/osm/world/z/x/y.bin\
+e:/osm/images/empty.bin
+
+
 # How to compile, run, edit...
 
 It based on [CmakeMreTemplate](https://github.com/XimikBoda/CmakeMreTemplate) and in [README.md](https://github.com/XimikBoda/CmakeMreTemplate/blob/main/README.md) you can find information about this.
@@ -29,10 +39,9 @@ git submodule update --depth 1
 |cmake, mreapi, resourses, core, vxp, run|See [README.md](https://github.com/XimikBoda/CmakeMreTemplate/blob/main/README.md).|
 
 
-Map tile setup (for you to do manually)
-The app will look for tiles on the MRE filesystem at:
+## Credits
 
-Code\
-e:/osm/gdansk/z/x/y.bin\
-e:/osm/world/z/x/y.bin\
-e:/osm/images/empty.bin
+- esp32_offline_osm - [mryndzionek](https://github.com/mryndzionek/esp32_offline_osm)
+- lvglMreDemo - [XimikBoda](https://github.com/XimikBoda/lvglMreDemo)
+- CMake MRE template — [XimikBoda](https://github.com/XimikBoda/CmakeMreTemplate)
+- TinyMRESDK — [XimikBoda](https://github.com/XimikBoda/TinyMRESDK)
