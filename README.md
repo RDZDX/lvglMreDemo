@@ -10,6 +10,17 @@ e:/osm/world/z/x/y.bin\
 e:/osm/images/empty.bin
 
 
+Key	Action
+UP / NUM2	Zoom in\
+DOWN / NUM8	Zoom out\
+LEFT / NUM4	Pan west\
+RIGHT / NUM6	Pan east\
+NUM1	Pan north\
+NUM7	Pan south\
+OK / Left softkey	Resume auto-animation\
+On first key press → pauses the auto-timer, switches to manual control. Pan step scales with zoom level (larger steps when zoomed out, finer when zoomed in).
+
+
 ## Credits
 
 - esp32_offline_osm - [mryndzionek](https://github.com/mryndzionek/esp32_offline_osm)
