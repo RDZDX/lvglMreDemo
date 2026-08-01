@@ -10,7 +10,7 @@ e:/osm/world/z/x/y.bin\
 e:/osm/images/empty.bin
 
 
-Key	Action
+Key	Action\
 UP / NUM2	Zoom in\
 DOWN / NUM8	Zoom out\
 LEFT / NUM4	Pan west\
