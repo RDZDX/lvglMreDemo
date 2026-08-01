@@ -35,4 +35,4 @@ The app will look for tiles on the MRE filesystem at:
 Code\
 e:/osm/gdansk/<z>/<x>/<y>.bin\
 e:/osm/world/<z>/<x>/<y>.bin\
-e:/osm/images/empty.bin\
+e:/osm/images/empty.bin
