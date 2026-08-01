@@ -39,6 +39,7 @@ static lv_indev_state_t touchpad_state = 0;
 
 static lv_indev_state_t keyboard_state = 0;
 static int32_t keyboard_key = 0;
+static mre_key_hook_t key_hook = NULL;
 
 
 /**********************
@@ -81,6 +82,11 @@ void lv_port_indev_init(void)
 	 *add objects to the group with `lv_group_add_obj(group, obj)`
 	 *and assign this input device to group to navigate in it:
 	 *`lv_indev_set_group(indev_keypad, group);`*/
+}
+
+void lv_port_indev_set_key_hook(mre_key_hook_t hook)
+{
+	key_hook = hook;
 }
 
 /**********************
@@ -152,6 +158,10 @@ static void keypad_read(lv_indev_t* indev_drv, lv_indev_data_t* data)
 
 static void keyboard_event(VMINT event, VMINT keycode) 
 {
+	if(key_hook != NULL) {
+		key_hook(event, keycode);
+	}
+
 	keyboard_state = keyboard_event_mapping(event);
 	keyboard_key = keyboard_key_mapping(keycode);
 
