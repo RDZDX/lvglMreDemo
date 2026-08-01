@@ -4,6 +4,7 @@
 #include "lv_port_disp_mre.h"
 #include <stdbool.h>
 #include "vmgraph.h"
+#include <string.h>
 
 /*********************
  *      DEFINES
