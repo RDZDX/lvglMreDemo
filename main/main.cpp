@@ -15,6 +15,7 @@
 #include "lv_port_fs_mre.h"
 
 #include <math.h>
+#include <cstring>
 #include <stdint.h>
 #include <stdio.h>
 
@@ -95,14 +96,36 @@ static void fix_path(VMWCHAR *path)
     }
 }
 
+//static bool file_exists(const char *path)
+//{
+//    VMWCHAR wpath[INFO_PATH_LEN] = {0};
+//    vm_ascii_to_ucs2(wpath, sizeof(wpath), const_cast<char *>(path));
+//    fix_path(wpath);
+
+//    VMFILE file = vm_file_open(wpath, MODE_READ, 1);
+//    if(file >= 0) {
+//        vm_file_close(file);
+//        return true;
+//    }
+
+//    return false;
+//}
+
 static bool file_exists(const char *path)
 {
+    char tmp[INFO_PATH_LEN];
+
+    strncpy(tmp, path, sizeof(tmp) - 1);
+    tmp[sizeof(tmp) - 1] = '\0';
+
     VMWCHAR wpath[INFO_PATH_LEN] = {0};
-    vm_ascii_to_ucs2(wpath, sizeof(wpath), const_cast<char *>(path));
+    vm_ascii_to_ucs2(wpath, sizeof(wpath), tmp);
+
     fix_path(wpath);
 
     VMFILE file = vm_file_open(wpath, MODE_READ, 1);
-    if(file >= 0) {
+    if (file >= 0)
+    {
         vm_file_close(file);
         return true;
     }
