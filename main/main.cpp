@@ -52,9 +52,13 @@ typedef enum {
     MAP_PHASE_RANDOM_WALK,
 } map_phase_t;
 
+//static const char *const maps[] = {
+//    "gdansk",
+//    "world",
+//};
+
 static const char *const maps[] = {
-    "gdansk",
-    "world",
+      "world",
 };
 
 static const tile_offset_t tile_offsets[9] = {
