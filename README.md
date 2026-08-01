@@ -1,7 +1,5 @@
 # Port and demo of [LVGL](https://github.com/lvgl/lvgl) for MRE platform
 
-![image](extra/on_Nokia.png)![image](extra/on_MoDis.png)
-
 # How to compile, run, edit...
 
 It based on [CmakeMreTemplate](https://github.com/XimikBoda/CmakeMreTemplate) and in [README.md](https://github.com/XimikBoda/CmakeMreTemplate/blob/main/README.md) you can find information about this.
@@ -29,3 +27,12 @@ git submodule update --depth 1
 |lvgl|lvgl repository, connected as git submodule.|
 |lv_port_mre|Driver for lvgl to access Mre Api. Implementation: graphics, input (touchscreen and keyboard) and file system.|
 |cmake, mreapi, resourses, core, vxp, run|See [README.md](https://github.com/XimikBoda/CmakeMreTemplate/blob/main/README.md).|
+
+
+Map tile setup (for you to do manually)
+The app will look for tiles on the MRE filesystem at:
+
+Code\
+e:/osm/gdansk/<z>/<x>/<y>.bin\
+e:/osm/world/<z>/<x>/<y>.bin\
+e:/osm/images/empty.bin\
