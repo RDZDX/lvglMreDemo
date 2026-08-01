@@ -81,8 +81,10 @@ static double current_lon = LOC_LON;
 static uint8_t current_zoom = 0;
 static map_phase_t map_phase = MAP_PHASE_ZOOM_WALK;
 static uint32_t rng_state = 0;
+static bool manual_mode = false;
 
 void handle_sysevt(VMINT message, VMINT param);
+extern "C" void map_key_hook(VMINT event, VMINT keycode);
 
 static void fix_path(VMWCHAR *path)
 {
@@ -247,8 +249,110 @@ static void refresh_map_view(void)
     }
 }
 
+static void enter_manual_mode(void)
+{
+    if(!manual_mode) {
+        manual_mode = true;
+        if(map_timer != NULL) {
+            lv_timer_pause(map_timer);
+        }
+    }
+}
+
+static double get_pan_step(void)
+{
+    return 0.001 * (double)(1u << (MAX_ZOOM_LEVEL - current_zoom));
+}
+
+static void resume_auto_mode(void)
+{
+    manual_mode = false;
+    current_zoom = 0;
+    map_phase = MAP_PHASE_ZOOM_WALK;
+
+    if(map_timer != NULL) {
+        lv_timer_set_period(map_timer, INFO_ZOOM_WALK_PERIOD_MS);
+        lv_timer_resume(map_timer);
+    }
+
+    refresh_map_view();
+}
+
+extern "C" void map_key_hook(VMINT event, VMINT keycode)
+{
+    bool handled = false;
+
+    if((event != VM_KEY_EVENT_DOWN) &&
+       (event != VM_KEY_EVENT_LONG_PRESS) &&
+       (event != VM_KEY_EVENT_REPEAT)) {
+        return;
+    }
+
+    switch(keycode) {
+    case VM_KEY_UP:
+    case VM_KEY_NUM2:
+        enter_manual_mode();
+        if(current_zoom < MAX_ZOOM_LEVEL) {
+            ++current_zoom;
+        }
+        handled = true;
+        break;
+
+    case VM_KEY_DOWN:
+    case VM_KEY_NUM8:
+        enter_manual_mode();
+        if(current_zoom > 0) {
+            --current_zoom;
+        }
+        handled = true;
+        break;
+
+    case VM_KEY_LEFT:
+    case VM_KEY_NUM4:
+        enter_manual_mode();
+        current_lon = wrap_longitude(current_lon - get_pan_step());
+        handled = true;
+        break;
+
+    case VM_KEY_RIGHT:
+    case VM_KEY_NUM6:
+        enter_manual_mode();
+        current_lon = wrap_longitude(current_lon + get_pan_step());
+        handled = true;
+        break;
+
+    case VM_KEY_NUM1:
+        enter_manual_mode();
+        current_lat = clamp_latitude(current_lat + get_pan_step());
+        handled = true;
+        break;
+
+    case VM_KEY_NUM7:
+        enter_manual_mode();
+        current_lat = clamp_latitude(current_lat - get_pan_step());
+        handled = true;
+        break;
+
+    case VM_KEY_OK:
+    case VM_KEY_LEFT_SOFTKEY:
+        resume_auto_mode();
+        return;
+
+    default:
+        return;
+    }
+
+    if(handled) {
+        refresh_map_view();
+    }
+}
+
 static void map_timer_cb(lv_timer_t *timer)
 {
+    if(manual_mode) {
+        return;
+    }
+
     if(map_phase == MAP_PHASE_ZOOM_WALK) {
         if(current_zoom < MAX_ZOOM_LEVEL) {
             ++current_zoom;
@@ -278,6 +382,7 @@ void vm_main(void)
     lv_tick_set_cb((lv_tick_get_cb_t)vm_get_tick_count);
     lv_port_disp_init();
     lv_port_indev_init();
+    lv_port_indev_set_key_hook(map_key_hook);
     lv_port_fs_init();
 
     screen_w = vm_graphic_get_screen_width();

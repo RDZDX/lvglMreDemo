@@ -13,6 +13,7 @@ extern "C" {
 #else
 #include "lvgl/lvgl.h"
 #endif
+#include "vmio.h"
 
 /*********************
  *      DEFINES
@@ -21,11 +22,13 @@ extern "C" {
 /**********************
  *      TYPEDEFS
  **********************/
+typedef void (*mre_key_hook_t)(VMINT event, VMINT keycode);
 
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
 void lv_port_indev_init(void);
+void lv_port_indev_set_key_hook(mre_key_hook_t hook);
 
 /**********************
  *      MACROS
