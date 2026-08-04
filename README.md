@@ -4,22 +4,19 @@
 Map tile setup (for you to do manually)
 The app will look for tiles on the MRE filesystem at:
 
-Code\
-e:/osm/gdansk/z/x/y.bin\
+Map data:\
 e:/osm/world/z/x/y.bin\
 e:/osm/images/empty.bin
 
 
 Key	Action\
-UP / NUM2	Zoom in\
-DOWN / NUM8	Zoom out\
-LEFT / NUM4	Pan west\
-RIGHT / NUM6	Pan east\
-NUM1	Pan north\
-NUM7	Pan south\
-OK / Left softkey	Resume auto-animation\
-On first key press → pauses the auto-timer, switches to manual control. Pan step scales with zoom level (larger steps when zoomed out, finer when zoomed in).
-
+LEFT_SOFT_KEY Zoom in\
+RIGHT_SOFT_KEY Zoom out\
+LEFT Pan west\
+RIGHT Pan east\
+UP Pan north\
+DOWN Pan south\
+OK center\
 
 ## Credits
 
