@@ -8,7 +8,6 @@ Map data:\
 e:/osm/world/z/x/y.bin\
 e:/osm/images/empty.bin
 
-
 Key	Action\
 LEFT_SOFT_KEY Zoom in\
 RIGHT_SOFT_KEY Zoom out\
@@ -17,6 +16,10 @@ RIGHT Pan east\
 UP Pan north\
 DOWN Pan south\
 OK center\
+
+## File
+
+- [lvglMreDemo.vxp](https://rdzdx.github.io/lvglMreDemo/lvglMreDemo.vxp)
 
 ## Credits
 
