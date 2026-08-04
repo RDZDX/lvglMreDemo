@@ -21,6 +21,8 @@ OK center\
 
 - [lvglMreDemo.vxp](https://rdzdx.github.io/lvglMreDemo/lvglMreDemo.vxp)
 
+![alt text](https://rdzdx.github.io/lvglMreDemo/picture.jpg)
+
 ## Credits
 
 - esp32_offline_osm - [mryndzionek](https://github.com/mryndzionek/esp32_offline_osm)
