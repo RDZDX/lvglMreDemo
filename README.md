@@ -1,7 +1,7 @@
 # Port and demo of [LVGL](https://github.com/lvgl/lvgl) for MRE platform - offline map viewer
 
 
-Map tile setup (for you to do manually)
+Map tile setup (for you to do manually). You need download and convert map tiles.
 The app will look for tiles on the MRE filesystem at:
 
 Map data:\
