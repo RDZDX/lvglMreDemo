@@ -1,4 +1,4 @@
-# Port and demo of [LVGL](https://github.com/lvgl/lvgl) for MRE platform
+# Port and demo of [LVGL](https://github.com/lvgl/lvgl) for MRE platform - offline map viewer
 
 
 Map tile setup (for you to do manually)
