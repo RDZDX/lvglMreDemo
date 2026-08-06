@@ -2,6 +2,7 @@
 
 
 Map tile setup (for you to do manually). You need download and convert map tiles.\
+Download and convert scripts on util directory.\
 The app will look for tiles on the MRE filesystem at:
 
 Map data:\
