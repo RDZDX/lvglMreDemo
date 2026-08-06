@@ -5,8 +5,8 @@ Map tile setup (for you to do manually)
 The app will look for tiles on the MRE filesystem at:
 
 Map data:\
-e:/osm/world/z/x/y.bin\
-e:/osm/custom/z/x/y.bin\
+e:/osm/world/z/x/y.bin - World map data\
+e:/osm/custom/z/x/y.bin - custom place map data with deeper zoom layers\
 e:/osm/images/empty.bin
 
 Key	Action\
