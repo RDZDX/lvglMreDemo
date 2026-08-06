@@ -12,10 +12,10 @@ e:/osm/images/empty.bin
 Key	Action\
 LEFT_SOFT_KEY Zoom in\
 RIGHT_SOFT_KEY Zoom out\
-LEFT Pan west\
-RIGHT Pan east\
-UP Pan north\
-DOWN Pan south\
+LEFT Pan west, VM_KEY_EVENT_LONG_PRESS Pan west * 10\
+RIGHT Pan east, VM_KEY_EVENT_LONG_PRESS Pan east * 10\
+UP Pan north, VM_KEY_EVENT_LONG_PRESS Pan north * 10\
+DOWN Pan south, VM_KEY_EVENT_LONG_PRESS Pan south * 10\
 OK center\
 
 ## File
