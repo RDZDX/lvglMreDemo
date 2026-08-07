@@ -32,3 +32,4 @@ KEY_1 disable / enable indicator with coordinates
 - lvglMreDemo - [XimikBoda](https://github.com/XimikBoda/lvglMreDemo)
 - CMake MRE template — [XimikBoda](https://github.com/XimikBoda/CmakeMreTemplate)
 - TinyMRESDK — [XimikBoda](https://github.com/XimikBoda/TinyMRESDK)
+
