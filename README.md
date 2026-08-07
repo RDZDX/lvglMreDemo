@@ -24,7 +24,7 @@ KEY_1 disable / enable indicator with coordinates
 
 - [lvglMreDemo.vxp](https://rdzdx.github.io/lvglMreDemo/lvglMreDemo.vxp)
 
-
+![alt text](https://rdzdx.github.io/lvglMreDemo/picture.jpg)
 
 ## Credits
 
