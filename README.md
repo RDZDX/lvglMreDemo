@@ -20,6 +20,12 @@ DOWN Pan south, VM_KEY_EVENT_LONG_PRESS Pan south * 10\
 OK center\
 KEY_1 disable / enable indicator with coordinates
 
+## Nokia Phone Signing
+
+For use on Nokia mobile phones, the application must be signed using the IMSI code of your SIM card.
+
+More information: https://vxpatch.luxferre.top
+
 ## File
 
 - [lvglMreDemo.vxp](https://rdzdx.github.io/lvglMreDemo/lvglMreDemo.vxp)
